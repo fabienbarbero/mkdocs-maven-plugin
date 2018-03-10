@@ -11,7 +11,7 @@ The plugin use the goal "build" and must link a mkdocs config file (by default t
 <plugin>
     <groupId>com.github.fabienbarbero</groupId>
     <artifactId>mkdocs-maven-plugin</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <executions>
         <execution>
             <id>test</id>
