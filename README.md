@@ -47,7 +47,7 @@ sudo apt install python-pip
 ```
 Then install mkdocs via pip
 ```text
-sudo pip install --upgrade pip
+sudo pip install mkdocs
 ```
 
 For more details, please visit the [mkdocs web site](http://www.mkdocs.org/).
