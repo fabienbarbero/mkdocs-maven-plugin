@@ -6,7 +6,7 @@ You must use Maven 3.5.1+ to use this plugin.
 
 ## Goals
 
-### "build" : duild the documentation
+### "build" : build the documentation
 
 This goals build the mkdocs documentation to HTML.
 
@@ -72,7 +72,6 @@ The built documentation will be pushed on this branch.
                         </goals>
                         <configuration>
                             <configFile>${basedir}/docs/mkdocs.yml</configFile>
-                            <commitMessage></commitMessage>
                         </configuration>
                     </execution>
                 </executions>
