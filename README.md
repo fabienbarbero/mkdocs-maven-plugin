@@ -3,15 +3,21 @@
 This is a simple plugin to build markdown documentation using [mkdocs](http://www.mkdocs.org/).
 
 
-## Usage
+## Goals
 
-The plugin use the goal "build" and must link a mkdocs config file (by default this file is named "mkdocs.yml")
+### "build" : duild the documentation
+
+This goals build the mkdocs documentation to HTML.
+
+| parameter name | required | description                                                  |
+| -------------- | -------- | ------------------------------------------------------------ |
+| configFile     | yes      | The path to mkdocs configuration file (usually "mkdocs.yml") |
 
 ```xml
 <plugin>
     <groupId>com.github.fabienbarbero</groupId>
     <artifactId>mkdocs-maven-plugin</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <executions>
         <execution>
             <id>test</id>
@@ -38,6 +44,41 @@ in another project when using the following dependency :
     <classifier>test</classifier> <!-- This is the execution id defined when generating the documentation -->
 </dependency>
 ``` 
+
+### "gh-deploy" : deploy documentation to github
+
+You can build and deploy the documentation to github pages. Your repository must contains a branch named "gh-pages".
+The built documentation will be pushed on this branch.
+
+
+| parameter name | required | description                                                  |
+| -------------- | -------- | ------------------------------------------------------------ |
+| configFile     | yes      | The path to mkdocs configuration file (usually "mkdocs.yml") |
+| commitMessage  | no       | The commit message used when pushing to "gh-pages" branch    |
+
+
+```xml
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.fabienbarbero</groupId>
+                <artifactId>mkdocs-maven-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>gh-deploy</goal>
+                        </goals>
+                        <configuration>
+                            <configFile>${basedir}/docs/mkdocs.yml</configFile>
+                            <commitMessage></commitMessage>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+```
 
 ## How installing mkdocs
 

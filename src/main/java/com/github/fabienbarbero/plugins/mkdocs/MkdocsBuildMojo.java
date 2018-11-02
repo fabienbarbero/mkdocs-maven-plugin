@@ -1,6 +1,18 @@
+/*
+ * (C) Copyright 2018 Fabien Barbero.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the GNU Lesser General Public License
+ * (LGPL) version 2.1 which accompanies this distribution, and is available at
+ * http://www.gnu.org/licenses/lgpl-2.1.html
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ */
 package com.github.fabienbarbero.plugins.mkdocs;
 
-import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -11,12 +23,13 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +41,8 @@ import java.util.zip.ZipOutputStream;
  */
 @Mojo( name = "build", defaultPhase = LifecyclePhase.PACKAGE )
 public class MkdocsBuildMojo
-        extends AbstractMojo
+        extends AbstractMkdocsMojo
 {
-
-    @Parameter( name = "configFile" )
-    private File configFile;
 
     @Parameter( defaultValue = "${project.build.directory}" )
     private File projectBuildDir;
@@ -90,21 +100,6 @@ public class MkdocsBuildMojo
 
         } catch ( IOException | InterruptedException ex ) {
             throw new MojoExecutionException( "Error building mkdocs documentation", ex );
-        }
-    }
-
-    private void dumpLogs( Process process )
-            throws IOException
-    {
-        BufferedReader reader = new BufferedReader( new InputStreamReader( process.getInputStream() ) );
-        String log;
-        while ( ( log = reader.readLine() ) != null ) {
-            getLog().info( log );
-        }
-
-        reader = new BufferedReader( new InputStreamReader( process.getErrorStream() ) );
-        while ( ( log = reader.readLine() ) != null ) {
-            getLog().info( log );
         }
     }
 
