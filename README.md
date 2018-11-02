@@ -1,6 +1,7 @@
 # Mkdocs maven plugin
 
 This is a simple plugin to build markdown documentation using [mkdocs](http://www.mkdocs.org/).
+You must use Maven 3.5.1+ to use this plugin.
 
 
 ## Goals
