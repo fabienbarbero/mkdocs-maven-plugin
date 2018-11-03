@@ -21,7 +21,7 @@ Default phase : *package*
 <plugin>
     <groupId>com.github.fabienbarbero</groupId>
     <artifactId>mkdocs-maven-plugin</artifactId>
-    <version>1.1</version>
+    <version>1.1.1</version>
     <executions>
         <execution>
             <id>test</id>
@@ -68,7 +68,7 @@ Default phase : *deploy*
             <plugin>
                 <groupId>com.github.fabienbarbero</groupId>
                 <artifactId>mkdocs-maven-plugin</artifactId>
-                <version>1.1</version>
+                <version>1.1.1</version>
                 <executions>
                     <execution>
                         <goals>
