@@ -1,6 +1,7 @@
 # Mkdocs maven plugin
 
 This is a simple plugin to build markdown documentation using [mkdocs](http://www.mkdocs.org/).
+
 You must use Maven 3.5.1+ to use this plugin.
 
 
@@ -9,6 +10,8 @@ You must use Maven 3.5.1+ to use this plugin.
 ### "build" : build the documentation
 
 This goals build the mkdocs documentation to HTML.
+
+Default phase : *package*
 
 | parameter name | required | description                                                  |
 | -------------- | -------- | ------------------------------------------------------------ |
@@ -51,6 +54,7 @@ in another project when using the following dependency :
 You can build and deploy the documentation to github pages. Your repository must contains a branch named "gh-pages".
 The built documentation will be pushed on this branch.
 
+Default phase : *deploy*
 
 | parameter name | required | description                                                  |
 | -------------- | -------- | ------------------------------------------------------------ |

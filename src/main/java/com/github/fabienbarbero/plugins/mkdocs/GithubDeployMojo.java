@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * @author Fabien Barbero
  */
-@Mojo( name = "gh-deploy", defaultPhase = LifecyclePhase.PACKAGE )
+@Mojo( name = "gh-deploy", defaultPhase = LifecyclePhase.DEPLOY )
 public class GithubDeployMojo
         extends AbstractMkdocsMojo {
 
