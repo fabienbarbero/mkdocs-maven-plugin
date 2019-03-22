@@ -16,6 +16,7 @@ Default phase : *package*
 | parameter name | required | description                                                  |
 | -------------- | -------- | ------------------------------------------------------------ |
 | configFile     | yes      | The path to mkdocs configuration file (usually "mkdocs.yml") |
+| outputFolder   | no       | The output folder where the documentation is generated in    |
 
 ```xml
 <plugin>
@@ -30,6 +31,7 @@ Default phase : *package*
             </goals>
             <configuration>
                 <configFile>${basedir}/src/site/documentation/mkdocs.yml</configFile>
+                <outputFolder>{directoryOfYourChoice}</outputFolder>
             </configuration>
         </execution>
     </executions>

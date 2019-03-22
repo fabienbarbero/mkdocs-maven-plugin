@@ -53,6 +53,9 @@ public class MkdocsBuildMojo
     @Parameter( readonly = true, defaultValue = "${project}" )
     private MavenProject project;
 
+    @Parameter
+    private File outputFolder;
+
     @Component
     private MavenProjectHelper helper;
 
@@ -62,7 +65,7 @@ public class MkdocsBuildMojo
     {
         try {
             // Create output dir
-            Path outputDir = projectBuildDir.toPath().resolve( "mkdocs/" + mojoExecution.getExecutionId() );
+            Path outputDir = projectBuildDir.toPath().resolve( outputFolder == null ? "mkdocs/" + mojoExecution.getExecutionId() : outputFolder.toString() );
             if ( Files.notExists( outputDir ) ) {
                 Files.createDirectories( outputDir );
             }
